@@ -1,0 +1,18 @@
+.LC0:
+        .string "Positive\n"
+.LC1:
+        .string "Zero or Negative\n"
+main:
+        sub     rsp, 8
+        test    edi, edi
+        jg      .L6
+        mov     edi, OFFSET FLAT:.LC1
+        call    puts
+.L3:
+        xor     eax, eax
+        add     rsp, 8
+        ret
+.L6:
+        mov     edi, OFFSET FLAT:.LC0
+        call    puts
+        jmp     .L3
