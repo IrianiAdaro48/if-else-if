@@ -1,0 +1,11 @@
+        vector<vector<int>> words = permute(num);
+        for (auto &a : words) {
+            for (int i = 0; i <= a.size(); ++i) {
+                a.insert(a.begin() + i, first);
+                res.push_back(a);
+                a.erase(a.begin() + i);
+            }
+        }   
+        return res;
+    }
+};
